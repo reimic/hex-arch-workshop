@@ -1,7 +1,5 @@
 package hexmatcher.project.domain.entity;
 
-import hexmatcher.project.domain.converter.ProjectIdConverter;
-import hexmatcher.project.domain.valueobject.ProjectId;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,8 +14,8 @@ import java.util.UUID;
 public class Project {
 
     @Id
-    @Convert(converter = ProjectIdConverter.class)
-    private ProjectId projectId;
+//    @Convert(converter = ProjectIdConverter.class)
+    private UUID projectId;
     private Double businessPriorityIndex;
     @Column(nullable = false, unique = true)
     private String name;
@@ -35,7 +33,8 @@ public class Project {
             Client client)
     {
         final var project = new Project();
-        project.projectId=new ProjectId(UUID.randomUUID());
+//        project.projectId=new ProjectId(UUID.randomUUID());
+        project.projectId=UUID.randomUUID();
         project.businessPriorityIndex=businessPriorityIndex;
         project.name=name;
         project.engagementManagerEmail=engagementManagerEmail;

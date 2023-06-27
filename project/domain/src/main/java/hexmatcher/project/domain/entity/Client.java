@@ -1,7 +1,5 @@
 package hexmatcher.project.domain.entity;
 
-import hexmatcher.project.domain.converter.ClientIdConverter;
-import hexmatcher.project.domain.valueobject.ClientId;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,8 +16,8 @@ import java.util.UUID;
 public class Client {
 
     @Id
-    @Convert(converter = ClientIdConverter.class)
-    private ClientId clientId;
+//    @Convert(converter = ClientIdConverter.class)
+    private UUID clientId;
     @Column(nullable = false, unique = true)
     private String name;
     @Enumerated(EnumType.STRING)
@@ -31,7 +29,8 @@ public class Client {
 
     public static Client createNew(String name,MarketUnit marketUnit){
         final var client = new Client();
-        client.clientId = new ClientId(UUID.randomUUID());
+//        client.clientId = new ClientId(UUID.randomUUID());
+        client.clientId = UUID.randomUUID();
         client.name=name;
         client.marketUnit=marketUnit;
         return client;
