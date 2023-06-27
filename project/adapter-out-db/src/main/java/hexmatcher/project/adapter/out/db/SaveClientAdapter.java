@@ -16,6 +16,6 @@ class SaveClientAdapter implements SaveClientPort {
     @Override
     public UUID save(Client client) {
 //        return clientRepository.save(client).getClientId().value();
-        return clientRepository.save(client).getClientId();
+        return clientRepository.save(client).getClientId().value();
     }
 }
