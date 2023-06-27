@@ -21,9 +21,12 @@ public class CalculateMatchingUseCase {
 
         getDemandTagsPort.findTagsByDemandId(command.id())
                          .ifPresentOrElse(matching::setDemandTags,
-                                          matching::fail);
-
-        matching.calculate(getEmployeesTagsPort.findEmployeesTags());
+                                          matching::logDemandNotFound);
+        if (matching.encounteredErrors()) {
+            return MatchingView.from(matching);
+        }
+        matching.setEmployeeToTags(getEmployeesTagsPort.findEmployeesTags());
+        matching.calculate();
         return MatchingView.from(matching);
     }
 
