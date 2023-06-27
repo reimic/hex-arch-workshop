@@ -1,17 +1,18 @@
 package hexmatcher.matching.domain;
 
+import java.util.List;
 import java.util.Map;
 
 public record MatchingView(MatchingId matchingId,
                            DemandId demandId,
                            Map<EmployeeId,MatchValue> employeeToMatchValue,
-                           MatchingStatus matchingStatus) {
+                           List<ErrorLog> errorLogs) {
 
     public static MatchingView from(Matching matching) {
         return new MatchingView(matching.getMatchingId(),
                                 matching.getDemandId(),
-                                matching.getEmployeesToMatchValues(),
-                                matching.getMatchingStatus());
+                                matching.getEmployeeToMatchValue(),
+                                matching.getErrorLogs());
     }
 
 }
