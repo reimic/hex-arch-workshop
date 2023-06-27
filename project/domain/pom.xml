@@ -14,6 +14,11 @@
     <name>Project's Model</name>
     <packaging>jar</packaging>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
