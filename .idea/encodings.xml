@@ -23,5 +23,17 @@
     <file url="file://$PROJECT_DIR$/reporting/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/adapter-in-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/adapter-in-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/adapter-out-demand/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/adapter-out-demand/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/adapter-out-employee/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/adapter-out-employee/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/application/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/domain/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tag/src/main/resources" charset="UTF-8" />
   </component>
 </project>

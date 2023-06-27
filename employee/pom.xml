@@ -3,15 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.acmecorp</groupId>
+    <parent>
+        <groupId>acmecorp</groupId>
+        <artifactId>acmecorp.hexmatcher</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <groupId>acmecorp.hexmatcher</groupId>
     <artifactId>employee</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
+    <name>employee</name>
+    <packaging>pom</packaging>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+
 
 </project>

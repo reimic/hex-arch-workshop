@@ -4,21 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>acmecorp</groupId>
-        <artifactId>acmecorp.hexmatcher</artifactId>
+        <groupId>acmecorp.hexmatcher</groupId>
+        <artifactId>project</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>acmecorp.hexmatcher</groupId>
-    <artifactId>project</artifactId>
+    <groupId>acmecorp.hexmatcher.project</groupId>
+    <artifactId>domain</artifactId>
     <version>${revision}</version>
-    <name>project</name>
-    <packaging>pom</packaging>
-    <modules>
-        <module>domain</module>
-        <module>application</module>
-        <module>adapter-in-web</module>
-        <module>adapter-out-db</module>
-    </modules>
+    <name>Project's Model</name>
+    <packaging>jar</packaging>
 
 
 
