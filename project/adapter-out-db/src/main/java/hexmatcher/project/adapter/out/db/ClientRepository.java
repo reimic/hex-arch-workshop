@@ -1,9 +1,8 @@
 package hexmatcher.project.adapter.out.db;
 
 import hexmatcher.project.domain.entity.Client;
+import hexmatcher.project.domain.valueobject.ClientId;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.UUID;
-
-interface ClientRepository extends JpaRepository<Client, UUID> {
+interface ClientRepository extends JpaRepository<Client, ClientId> {
 }
