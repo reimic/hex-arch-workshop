@@ -1,9 +1,7 @@
-package hexmatcher.project.application.service;
+package hexmatcher.project.application.usecase;
 
-import hexmatcher.project.application.port.in.StartProjectCommand;
-import hexmatcher.project.application.port.in.StartProjectUseCase;
-import hexmatcher.project.application.port.out.QueryClientByIdPort;
-import hexmatcher.project.application.port.out.SaveProjectPort;
+import hexmatcher.project.application.port.QueryClientByIdPort;
+import hexmatcher.project.application.port.SaveProjectPort;
 import hexmatcher.project.domain.entity.Client;
 import hexmatcher.project.domain.entity.Project;
 import hexmatcher.project.domain.valueobject.ClientId;
@@ -16,14 +14,13 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-class StartProjectService implements StartProjectUseCase {
+public class StartProjectUseCase {
 
     private static final String CLIENT_WITH_ID_NOT_FOUND = "Client with ID=%s not found.";
     private final QueryClientByIdPort queryClientByIdPort;
     private final SaveProjectPort saveProjectPort;
 
     @Transactional
-    @Override
     public String handle(StartProjectCommand startProjectCommand) {
         String clientId = startProjectCommand.getClientId();
         Client client = queryClientByIdPort.queryBy(new ClientId(

@@ -1,6 +1,6 @@
 package hexmatcher.project.adapter.out.db;
 
-import hexmatcher.project.application.port.out.SaveProjectPort;
+import hexmatcher.project.application.port.SaveProjectPort;
 import hexmatcher.project.domain.entity.Project;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

@@ -1,7 +1,7 @@
 package hexmatcher.project.adapter.out.db;
 
-import hexmatcher.project.application.port.in.ProjectsByClientIdView;
-import hexmatcher.project.application.port.out.QueryProjectsByClientIdPort;
+import hexmatcher.project.application.port.QueryProjectsByClientIdPort;
+import hexmatcher.project.application.usecase.QueryProjectsByClientIdUseCase.ProjectsByClientIdView;
 import hexmatcher.project.domain.valueobject.ClientId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

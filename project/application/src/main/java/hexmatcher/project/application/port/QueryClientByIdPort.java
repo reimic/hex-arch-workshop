@@ -1,4 +1,4 @@
-package hexmatcher.project.application.port.out;
+package hexmatcher.project.application.port;
 
 import hexmatcher.project.domain.entity.Client;
 import hexmatcher.project.domain.valueobject.ClientId;

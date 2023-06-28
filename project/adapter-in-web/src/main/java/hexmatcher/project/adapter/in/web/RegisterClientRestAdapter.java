@@ -1,8 +1,8 @@
 package hexmatcher.project.adapter.in.web;
 
 
-import hexmatcher.project.application.port.in.RegisterClientCommand;
-import hexmatcher.project.application.port.in.RegisterClientUseCase;
+import hexmatcher.project.application.usecase.RegisterClientCommand;
+import hexmatcher.project.application.usecase.RegisterClientUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;

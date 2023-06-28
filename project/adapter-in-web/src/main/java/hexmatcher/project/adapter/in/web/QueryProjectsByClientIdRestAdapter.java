@@ -1,7 +1,6 @@
 package hexmatcher.project.adapter.in.web;
 
-import hexmatcher.project.application.port.in.ProjectsByClientIdView;
-import hexmatcher.project.application.port.in.QueryProjectsByClientIdUseCase;
+import hexmatcher.project.application.usecase.QueryProjectsByClientIdUseCase;
 import hexmatcher.project.domain.valueobject.ClientId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,7 @@ class QueryProjectsByClientIdRestAdapter {
     private final QueryProjectsByClientIdUseCase queryProjectsByClientIdUseCase;
 
     @GetMapping("projects/client/{clientId}")
-    List<ProjectsByClientIdView> getProjectsByClientId(@PathVariable String clientId){
+    List<QueryProjectsByClientIdUseCase.ProjectsByClientIdView> getProjectsByClientId(@PathVariable String clientId){
         return queryProjectsByClientIdUseCase.queryBy(new ClientId(UUID.fromString(clientId)));
     }
 }

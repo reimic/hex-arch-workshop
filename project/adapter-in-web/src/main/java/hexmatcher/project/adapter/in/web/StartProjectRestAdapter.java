@@ -1,7 +1,7 @@
 package hexmatcher.project.adapter.in.web;
 
-import hexmatcher.project.application.port.in.StartProjectCommand;
-import hexmatcher.project.application.port.in.StartProjectUseCase;
+import hexmatcher.project.application.usecase.StartProjectCommand;
+import hexmatcher.project.application.usecase.StartProjectUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;

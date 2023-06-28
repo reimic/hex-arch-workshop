@@ -1,6 +1,6 @@
 package hexmatcher.project.adapter.out.db;
 
-import hexmatcher.project.application.port.out.QueryClientByIdPort;
+import hexmatcher.project.application.port.QueryClientByIdPort;
 import hexmatcher.project.domain.entity.Client;
 import hexmatcher.project.domain.valueobject.ClientId;
 import lombok.RequiredArgsConstructor;

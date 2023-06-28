@@ -1,4 +1,4 @@
-package hexmatcher.project.application.port.in;
+package hexmatcher.project.application.usecase;
 
 import hexmatcher.project.domain.entity.MarketUnit;
 import jakarta.validation.constraints.NotBlank;
