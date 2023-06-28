@@ -12,6 +12,12 @@
     <artifactId>domain</artifactId>
     <version>${revision}</version>
     <name>Tag's Model</name>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+        </dependency>
+    </dependencies>
     <packaging>jar</packaging>
 
 </project>

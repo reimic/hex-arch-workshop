@@ -11,10 +11,8 @@
     <groupId>acmecorp.hexmatcher</groupId>
     <artifactId>tag</artifactId>
     <version>${revision}</version>
-    <name>tag</name>
+    <name>Tag</name>
     <packaging>pom</packaging>
-
-
 
     <modules>
         <module>adapter-in-web</module>
@@ -23,5 +21,4 @@
         <module>application</module>
         <module>domain</module>
     </modules>
-
 </project>

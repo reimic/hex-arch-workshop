@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>acmecorp.hexmatcher</groupId>
-        <artifactId>tag</artifactId>
+        <artifactId>demand</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>acmecorp.hexmatcher.tag</groupId>
-    <artifactId>adapter-out-demand</artifactId>
+    <groupId>org.acmecorp.demand</groupId>
+    <artifactId>domain</artifactId>
     <version>${revision}</version>
-    <name>Tag's Demand Adapter (OUT)</name>
+    <name>Demand's Model</name>
     <packaging>jar</packaging>
 
 </project>
