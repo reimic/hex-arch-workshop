@@ -11,9 +11,11 @@
     <groupId>acmecorp.hexmatcher</groupId>
     <artifactId>demand</artifactId>
     <version>${revision}</version>
-    <name>demand</name>
+    <name>Demand</name>
     <packaging>pom</packaging>
 
-
-
+    <modules>
+        <module>domain</module>
+        <module>application</module>
+    </modules>
 </project>
