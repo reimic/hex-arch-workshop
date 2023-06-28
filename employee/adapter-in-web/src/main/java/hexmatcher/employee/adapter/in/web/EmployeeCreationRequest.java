@@ -1,6 +1,6 @@
 package hexmatcher.employee.adapter.in.web;
 
-public record EmployeeCreationRequest(
+record EmployeeCreationRequest(
         String globalId,
         String internalId,
         String firstName,

@@ -1,5 +1,6 @@
 package hexmatcher.employee.adapter.in.web;
 
+import hexmatcher.employee.application.port.in.RegisterEmployeeUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class RegisterEmployeeRestAdapter {
+class RegisterEmployeeRestAdapter {
 
     private final RegisterEmployeeUseCase registerEmployeeUseCase;
 

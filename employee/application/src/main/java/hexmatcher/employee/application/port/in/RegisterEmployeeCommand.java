@@ -1,5 +1,6 @@
 package hexmatcher.employee.application.port.in;
 
+import hexmatcher.employee.domain.entity.Unit;
 import jakarta.validation.constraints.NotBlank;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -12,10 +13,12 @@ public class RegisterEmployeeCommand extends SelfValidating<RegisterEmployeeComm
     private final String firstName;
     @NotBlank
     private final String lastName;
-
-    public RegisterEmployeeCommand(String firstName, String lastName){
+    @NotBlank
+    private final Unit unit;
+    public RegisterEmployeeCommand(String firstName, String lastName, Unit unit){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.unit = unit;
         this.validateSelf();
     }
 }
