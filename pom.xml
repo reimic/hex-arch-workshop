@@ -42,7 +42,6 @@
         <module>project</module>
         <module>demand</module>
         <module>employee</module>
-        <module>reporting</module>
         <module>configuration</module>
     </modules>
 
