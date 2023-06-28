@@ -5,25 +5,31 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>acmecorp.hexmatcher</groupId>
-        <artifactId>tag</artifactId>
+        <artifactId>demand</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>acmecorp.hexmatcher.tag</groupId>
+    <groupId>org.acmecorp.demand</groupId>
     <artifactId>application</artifactId>
     <version>${revision}</version>
-    <name>Tag's Application</name>
+    <name>Demand's Application</name>
     <packaging>jar</packaging>
 
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
         </dependency>
         <dependency>
-            <groupId>acmecorp.hexmatcher.tag</groupId>
+            <groupId>org.acmecorp.demand</groupId>
             <artifactId>domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
 </project>

@@ -11,6 +11,7 @@
     <groupId>acmecorp.hexmatcher.tag</groupId>
     <artifactId>adapter-out-employee</artifactId>
     <version>${revision}</version>
+    <name>Tag's Employee Adapter (OUT)</name>
     <packaging>jar</packaging>
 
 </project>

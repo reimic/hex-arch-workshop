@@ -11,6 +11,7 @@
     <groupId>acmecorp.hexmatcher.tag</groupId>
     <artifactId>adapter-in-web</artifactId>
     <version>${revision}</version>
+    <name>Tag's Web Adapter (IN)</name>
     <packaging>jar</packaging>
 
 </project>
