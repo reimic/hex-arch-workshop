@@ -1,12 +1,10 @@
 package hexmatcher.employee.adapter.in.web;
 
-import hexmatcher.employee.application.port.in.RegisterEmployeeUseCase;
+import hexmatcher.employee.application.usecase.RegisterEmployeeCommand;
+import hexmatcher.employee.application.usecase.RegisterEmployeeUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -14,11 +12,13 @@ class RegisterEmployeeRestAdapter {
 
     private final RegisterEmployeeUseCase registerEmployeeUseCase;
 
-    @PostMapping("employess")
+    @PostMapping("employees")
     @ResponseStatus(HttpStatus.CREATED)
     String registerEmployee(@RequestBody EmployeeCreationRequest request){
-
-
-        return null;
+        RegisterEmployeeCommand registerEmployeeCommand = new RegisterEmployeeCommand(
+            request.firstName(),
+            request.lastName()
+        );
+        return registerEmployeeUseCase.handle(registerEmployeeCommand);
     }
 }

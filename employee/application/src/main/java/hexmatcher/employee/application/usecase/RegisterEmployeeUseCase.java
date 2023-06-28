@@ -1,25 +1,23 @@
-package hexmatcher.employee.application.service;
+package hexmatcher.employee.application.usecase;
 
-import hexmatcher.employee.application.port.in.RegisterEmployeeCommand;
-import hexmatcher.employee.application.port.in.RegisterEmployeeUseCase;
-import hexmatcher.employee.application.port.out.SaveEmployeePort;
+import hexmatcher.employee.application.port.SaveEmployeePort;
 import hexmatcher.employee.domain.entity.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
+
 @Service
 @RequiredArgsConstructor
-class RegisterEmployeeService implements RegisterEmployeeUseCase {
+public class RegisterEmployeeUseCase {
     private final SaveEmployeePort saveEmployeePort;
-
     @Transactional
-    @Override
     public String handle(RegisterEmployeeCommand registerEmployeeCommand){
         Employee employee = Employee.createNew(
-          registerEmployeeCommand.getFirstName(),
-          registerEmployeeCommand.getLastName(),
-                registerEmployeeCommand.getUnit()
+                registerEmployeeCommand.getFirstName(),
+                registerEmployeeCommand.getLastName(),
+                Collections.emptyList()
         );
         return saveEmployeePort.save(employee).toString();
     }

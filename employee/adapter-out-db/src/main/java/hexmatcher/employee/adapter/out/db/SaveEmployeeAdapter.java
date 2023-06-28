@@ -1,6 +1,6 @@
 package hexmatcher.employee.adapter.out.db;
 
-import hexmatcher.employee.application.port.out.SaveEmployeePort;
+import hexmatcher.employee.application.port.SaveEmployeePort;
 import hexmatcher.employee.domain.entity.Employee;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

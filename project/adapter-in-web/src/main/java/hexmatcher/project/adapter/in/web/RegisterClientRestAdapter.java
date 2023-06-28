@@ -5,10 +5,7 @@ import hexmatcher.project.application.usecase.RegisterClientCommand;
 import hexmatcher.project.application.usecase.RegisterClientUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,4 +22,7 @@ class RegisterClientRestAdapter {
         );
         return registerClientUseCase.handle(registerClientCommand);
     }
+
+
+
 }

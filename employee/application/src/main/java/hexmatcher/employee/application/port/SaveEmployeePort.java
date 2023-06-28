@@ -1,4 +1,4 @@
-package hexmatcher.employee.application.port.out;
+package hexmatcher.employee.application.port;
 
 import hexmatcher.employee.domain.entity.Employee;
 

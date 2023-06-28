@@ -5,5 +5,5 @@ import hexmatcher.employee.domain.converter.ValueObject;
 import java.io.Serializable;
 import java.util.UUID;
 
-public record EmployeeId(UUID value) implements ValueObject<UUID>, Serializable {
+public record CharacteristicId(UUID value) implements ValueObject<UUID> , Serializable {
 }

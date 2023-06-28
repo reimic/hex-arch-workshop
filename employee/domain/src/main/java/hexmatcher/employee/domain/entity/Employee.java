@@ -5,6 +5,7 @@ import hexmatcher.employee.domain.valueobject.EmployeeId;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Collection;
 import java.util.UUID;
 
 @Entity
@@ -24,20 +25,19 @@ public class Employee {
     @Column(nullable = false)
     private String lastName;
 
-    @Enumerated(value = EnumType.STRING)
-    @Column
-    private Unit unit;
+    @OneToMany(mappedBy = "employee")
+    private Collection<Characteristic> characteristics;
 
     public static Employee createNew(
         String firstName,
         String lastName,
-        Unit unit
+        Collection<Characteristic> characteristics
     ){
         final var employee = new Employee();
         employee.employeeId = new EmployeeId(UUID.randomUUID());
         employee.firstName = firstName;
         employee.lastName = lastName;
-        employee.unit = unit;
+        employee.characteristics = characteristics;
         return employee;
     }
 }

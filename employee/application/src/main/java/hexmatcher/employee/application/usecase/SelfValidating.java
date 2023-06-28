@@ -1,4 +1,4 @@
-package hexmatcher.employee.application.port.in;
+package hexmatcher.employee.application.usecase;
 
 import jakarta.validation.*;
 
