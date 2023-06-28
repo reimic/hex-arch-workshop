@@ -1,5 +1,6 @@
 package hexmatcher.project.domain.converter;
 
+import hexmatcher.project.domain.valueobject.ValueObject;
 import jakarta.persistence.AttributeConverter;
 
 import java.util.UUID;

@@ -1,7 +1,5 @@
 package hexmatcher.project.domain.valueobject;
 
-import hexmatcher.project.domain.converter.ValueObject;
-
 import java.io.Serializable;
 import java.util.UUID;
 
