@@ -14,6 +14,11 @@
     <name>employee</name>
     <packaging>pom</packaging>
 
-
+    <modules>
+        <module>adapter-in-web</module>
+        <module>adapter-out-db</module>
+        <module>domain</module>
+        <module>application</module>
+    </modules>
 
 </project>
