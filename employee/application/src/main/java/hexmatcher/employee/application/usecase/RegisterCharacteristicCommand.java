@@ -10,9 +10,7 @@ import lombok.Getter;
 @EqualsAndHashCode(callSuper = false)
 public class RegisterCharacteristicCommand extends SelfValidating<RegisterCharacteristicCommand> {
 
-    @PositiveOrZero
     private final TagId tagId;
-    @PositiveOrZero
     private final EmployeeId employeeId;
     public RegisterCharacteristicCommand(
             EmployeeId employeeId,

@@ -12,10 +12,9 @@ import java.util.List;
 
 interface CharacteristicRepository extends JpaRepository<Characteristic, CharacteristicId> {
     @Query("""
-        select 
-            e.employeeId as employeeId,
+        select
             c.tagId as tagId
-        from Characteristic  c 
+        from Characteristic  c
         join c.employee e
         where e.employeeId = :employeeId
     """)
