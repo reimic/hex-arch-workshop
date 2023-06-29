@@ -25,7 +25,6 @@ public class QueryCharacteristicByEmployeeIdUseCase {
     }
 
     public interface CharacteristicsByEmployeeIdView{
-        EmployeeId getEmployeeId();
         TagId getTagId();
     }
 }
