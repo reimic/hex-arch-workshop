@@ -1,12 +1,17 @@
 package hexmatcher.employee.domain.entity;
 
 import hexmatcher.employee.domain.converter.EmployeeIdConverter;
+import hexmatcher.employee.domain.converter.ProjectIdConverter;
 import hexmatcher.employee.domain.valueobject.EmployeeId;
+import hexmatcher.employee.domain.valueobject.ProjectId;
+import hexmatcher.employee.domain.valueobject.TagId;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Entity
 @Getter
@@ -25,19 +30,31 @@ public class Employee {
     @Column(nullable = false)
     private String lastName;
 
-    @OneToMany(mappedBy = "employee")
-    private Collection<Characteristic> characteristics;
+    @Column
+    @Convert(converter = ProjectIdConverter.class)
+    private ProjectId projectId;
+
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<Characteristic> characteristics = new HashSet<>();
 
     public static Employee createNew(
         String firstName,
         String lastName,
-        Collection<Characteristic> characteristics
+        ProjectId projectId,
+        Set<TagId> tags
     ){
         final var employee = new Employee();
         employee.employeeId = new EmployeeId(UUID.randomUUID());
         employee.firstName = firstName;
         employee.lastName = lastName;
-        employee.characteristics = characteristics;
+        employee.projectId = projectId;
+        employee.characteristics = (tags == null || tags.isEmpty()) ? null : tags.stream()
+                .map(tagId -> Characteristic.createNew(employee, tagId)).collect(Collectors.toSet());
         return employee;
+    }
+
+    public void acceptProject(ProjectId projectId){
+        this.projectId = projectId;
     }
 }

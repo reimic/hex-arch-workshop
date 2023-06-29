@@ -37,7 +37,8 @@ class OpenDemandRestAdapter {
                 request.needDate(),
                 request.employeesRequired(),
                 request.description(),
-                (request.tagIds() == null || request.tagIds().isEmpty()) ? null : request.tagIds().stream().map(tagId -> new TagId(UUID.fromString(tagId))).collect(Collectors.toSet())
+                (request.tagIds() == null || request.tagIds().isEmpty()) ? null : request.tagIds().stream()
+                        .map(tagId -> new TagId(UUID.fromString(tagId))).collect(Collectors.toSet())
         );
         return openDemandUseCase.handle(openDemandCommand);
     }

@@ -17,7 +17,8 @@ public class RegisterEmployeeUseCase {
         Employee employee = Employee.createNew(
                 registerEmployeeCommand.getFirstName(),
                 registerEmployeeCommand.getLastName(),
-                Collections.emptyList()
+                registerEmployeeCommand.getProjectId(),
+                registerEmployeeCommand.getTags()
         );
         return saveEmployeePort.save(employee).toString();
     }

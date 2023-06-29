@@ -4,7 +4,6 @@ import hexmatcher.employee.application.port.QueryAllEmployeesPort;
 import hexmatcher.employee.domain.valueobject.EmployeeId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

@@ -17,6 +17,7 @@
     <modules>
         <module>adapter-in-web</module>
         <module>adapter-out-db</module>
+        <module>adapter-in-tag</module>
         <module>domain</module>
         <module>application</module>
     </modules>

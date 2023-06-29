@@ -24,5 +24,4 @@ interface ProjectRepository extends JpaRepository<Project, ProjectId> {
             where c.clientId = :clientId
             """)
     List<ProjectsByClientIdView> queryBy(@Param("clientId") ClientId clientId);
-
 }

@@ -64,7 +64,8 @@ public class Demand {
         demand.needDate = needDate;
         demand.employeesRequired = employeesRequired == null ? 1 : employeesRequired;
         demand.description = description;
-        demand.specifications = (tags == null || tags.isEmpty()) ? null : tags.stream().map(tagId -> Specification.createNew(demand, tagId)).collect(Collectors.toSet());
+        demand.specifications = (tags == null || tags.isEmpty()) ? null : tags.stream()
+                .map(tagId -> Specification.createNew(demand, tagId)).collect(Collectors.toSet());
         return demand;
     }
 
