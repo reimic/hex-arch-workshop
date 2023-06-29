@@ -1,8 +1,9 @@
 package hexmatcher.project.adapter.in.web;
 
 
-import hexmatcher.project.application.usecase.RegisterClientCommand;
 import hexmatcher.project.application.usecase.RegisterClientUseCase;
+import hexmatcher.project.application.usecase.RegisterClientUseCase.RegisterClientCommand;
+import hexmatcher.project.domain.entity.MarketUnit;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,11 @@ class RegisterClientRestAdapter {
         return registerClientUseCase.handle(registerClientCommand);
     }
 
+    record ClientCreationRequest(
+            String name,
+            MarketUnit marketUnit
+    ) {
+    }
 
 
 }

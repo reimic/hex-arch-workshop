@@ -2,9 +2,7 @@ package hexmatcher.demand.domain.entity;
 
 import hexmatcher.demand.domain.converter.DemandIdConverter;
 import hexmatcher.demand.domain.converter.ProjectIdConverter;
-import hexmatcher.demand.domain.valueobject.DemandId;
-import hexmatcher.demand.domain.valueobject.ProjectId;
-import hexmatcher.demand.domain.valueobject.TagId;
+import hexmatcher.demand.domain.valueobject.*;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,6 +21,7 @@ import java.util.stream.Collectors;
 @ToString
 public class Demand {
 
+    private static final String CAN_NOT_PROPOSE_CANDIDATE_WHEN_DEMAND_STATUS_IS_DIFFERENT_FROM_OPEN = "Can not propose candidate when demand status is different from OPEN.";
     @Id
     @Convert(converter = DemandIdConverter.class)
     private DemandId demandId;
@@ -69,4 +68,29 @@ public class Demand {
         return demand;
     }
 
+    public CandidateId proposeCandidate(EmployeeId employeeId) {
+        if (this.demandStatus!=DemandStatus.OPENED){
+            throw new IllegalStateException(CAN_NOT_PROPOSE_CANDIDATE_WHEN_DEMAND_STATUS_IS_DIFFERENT_FROM_OPEN);
+        }
+        Candidate candidate = Candidate.createNew(this, employeeId);
+        this.candidates.add(candidate);
+        if (this.candidates.size()==this.employeesRequired){
+            this.demandStatus=DemandStatus.STAFFED;
+        }
+        return candidate.getCandidateId();
+    }
+
+    public void acceptCandidate(CandidateId candidateId){
+        this.candidates.stream()
+                .filter(candidate -> candidate.getCandidateId().equals(candidateId))
+                .findFirst()
+                .ifPresent((Candidate::acceptCandidate));
+    }
+
+    public void rejectCandidate(CandidateId candidateId) {
+        this.candidates.stream()
+                .filter(candidate -> candidate.getCandidateId().equals(candidateId))
+                .findFirst()
+                .ifPresent(Candidate::rejectCandidate);
+    }
 }

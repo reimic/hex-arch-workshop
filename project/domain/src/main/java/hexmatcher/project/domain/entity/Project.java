@@ -24,6 +24,7 @@ public class Project {
     private String engagementManagerEmail;
     private String description;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
     @EqualsAndHashCode.Exclude
     private Client client;
 

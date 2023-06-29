@@ -1,7 +1,9 @@
 package hexmatcher.demand.adapter.in.web;
 
-import hexmatcher.demand.application.usecase.OpenDemandCommand;
 import hexmatcher.demand.application.usecase.OpenDemandUseCase;
+import hexmatcher.demand.application.usecase.OpenDemandUseCase.OpenDemandCommand;
+import hexmatcher.demand.domain.entity.DemandPriority;
+import hexmatcher.demand.domain.entity.DemandType;
 import hexmatcher.demand.domain.valueobject.ProjectId;
 import hexmatcher.demand.domain.valueobject.TagId;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -36,6 +40,17 @@ class OpenDemandRestAdapter {
                 (request.tagIds() == null || request.tagIds().isEmpty()) ? null : request.tagIds().stream().map(tagId -> new TagId(UUID.fromString(tagId))).collect(Collectors.toSet())
         );
         return openDemandUseCase.handle(openDemandCommand);
+    }
+
+    record DemandCreationRequest(
+            DemandPriority demandPriority,
+            DemandType demandType,
+            String projectId,
+            LocalDate needDate,
+            Long employeesRequired,
+            String description,
+            Set<String> tagIds
+    ) {
     }
 
 }

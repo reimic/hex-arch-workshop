@@ -1,7 +1,7 @@
 package hexmatcher.project.adapter.in.web;
 
-import hexmatcher.project.application.usecase.StartProjectCommand;
 import hexmatcher.project.application.usecase.StartProjectUseCase;
+import hexmatcher.project.application.usecase.StartProjectUseCase.StartProjectCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,4 +28,12 @@ class StartProjectRestAdapter {
         return startProjectUseCase.handle(startProjectCommand);
     }
 
+    record ProjectCreationRequest(
+            Double businessPriorityIndex,
+            String name,
+            String engagementManagerEmail,
+            String description,
+            String clientId
+    ) {
+    }
 }
