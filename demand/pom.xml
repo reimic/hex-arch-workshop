@@ -17,5 +17,7 @@
     <modules>
         <module>domain</module>
         <module>application</module>
+        <module>adapter-in-web</module>
+        <module>adapter-out-db</module>
     </modules>
 </project>

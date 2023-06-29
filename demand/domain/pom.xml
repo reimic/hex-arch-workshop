@@ -8,10 +8,17 @@
         <artifactId>demand</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>org.acmecorp.demand</groupId>
+    <groupId>acmecorp.hexmatcher.demand</groupId>
     <artifactId>domain</artifactId>
     <version>${revision}</version>
     <name>Demand's Model</name>
     <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -55,6 +55,7 @@
             <version>${revision}</version>
         </dependency>
 
+
         <!-- employee -->
 
         <dependency>
@@ -64,6 +65,19 @@
         </dependency>
         <dependency>
             <groupId>acmecorp.hexmatcher.employee</groupId>
+            <artifactId>adapter-out-db</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!--  demand  -->
+
+        <dependency>
+            <groupId>acmecorp.hexmatcher.demand</groupId>
+            <artifactId>adapter-in-web</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>acmecorp.hexmatcher.demand</groupId>
             <artifactId>adapter-out-db</artifactId>
             <version>${revision}</version>
         </dependency>

@@ -1,33 +1,31 @@
 package hexmatcher.demand.application.usecase;
 
-import hexmatcher.demand.domain.valueobject.NeedDate;
-import hexmatcher.demand.domain.valueobject.OpenPositions;
-import hexmatcher.demand.domain.valueobject.ProjectId;
-import hexmatcher.demand.domain.valueobject.TagId;
-import lombok.AllArgsConstructor;
+import hexmatcher.demand.application.port.SaveDemandPort;
+import hexmatcher.demand.domain.entity.Demand;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
+@Slf4j
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OpenDemandUseCase {
 
-    public DemandView apply(OpenDemandCommand command) {
-
-
-        return new DemandView();
-    }
-
-    public record OpenDemandCommand(ProjectId projectId,
-                                    NeedDate needDate,
-                                    OpenPositions openPositions,
-                                    List<TagId> tags) {
-
-    }
-
-    public record DemandView() {
-
+    private final SaveDemandPort saveDemandPort;
+    @Transactional
+    public String handle(OpenDemandCommand openDemandCommand){
+        log.info("Opening demand with data: {}",openDemandCommand);
+        Demand demand = Demand.createNew(
+                openDemandCommand.getDemandPriority(),
+                openDemandCommand.getDemandType(),
+                openDemandCommand.getProjectId(),
+                openDemandCommand.getNeedDate(),
+                openDemandCommand.getEmployeesRequired(),
+                openDemandCommand.getDescription(),
+                openDemandCommand.getTags()
+        );
+        return saveDemandPort.save(demand).toString();
     }
 
 }

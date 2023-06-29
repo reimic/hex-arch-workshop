@@ -11,7 +11,7 @@
     <groupId>acmecorp.hexmatcher</groupId>
     <artifactId>project</artifactId>
     <version>${revision}</version>
-    <name>project</name>
+    <name>Project</name>
     <packaging>pom</packaging>
     <modules>
         <module>domain</module>
@@ -19,7 +19,4 @@
         <module>adapter-in-web</module>
         <module>adapter-out-db</module>
     </modules>
-
-
-
 </project>
