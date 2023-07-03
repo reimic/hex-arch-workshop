@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
-public class QueryAssignableEmployeeAdapterPort implements QueryAssignableEmployeeCharacteristicsPort {
+class QueryAssignableEmployeeAdapterPort implements QueryAssignableEmployeeCharacteristicsPort {
     private final QueryAssignableEmployeeCharacteristicsUseCase queryAssignableEmployeeCharacteristicsUseCase;
 
     @Override
