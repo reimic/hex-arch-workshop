@@ -19,8 +19,8 @@ import java.util.UUID;
 @ToString
 public class Candidate {
 
-    private static final String CAN_NOT_ACCEPT_CANDIDATE_WHEN_CURRENT_CANDIDATE_STATUS_DIFFER_FROM_PROPOSED = "Can not accept candidate when current candidate status differ from PROPOSED.";
-    private static final String CAN_NOT_REJECT_CANDIDATE_WHEN_CURRENT_CANDIDATE_STATUS_DIFFER_FROM_PROPOSED = "Can not reject candidate when current candidate status differ from PROPOSED.";
+    static final String CAN_NOT_ACCEPT_CANDIDATE_WHEN_CURRENT_CANDIDATE_STATUS_DIFFER_FROM_PROPOSED = "Can not accept candidate when current candidate status differ from PROPOSED.";
+    static final String CAN_NOT_REJECT_CANDIDATE_WHEN_CURRENT_CANDIDATE_STATUS_DIFFER_FROM_PROPOSED = "Can not reject candidate when current candidate status differ from PROPOSED.";
     @Id
     @Convert(converter = CandidateIdConverter.class)
     private CandidateId candidateId;

@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 public class Demand {
 
     private static final String CAN_NOT_PROPOSE_CANDIDATE_WHEN_DEMAND_STATUS_IS_DIFFERENT_FROM_OPEN = "Can not propose candidate when demand status is different from OPEN.";
+    public static final String THERE_IS_NO_CANDIDATE_WITH_ID = "There is no candidate with ID=%s";
     @Id
     @Convert(converter = DemandIdConverter.class)
     private DemandId demandId;
@@ -85,13 +86,21 @@ public class Demand {
         this.candidates.stream()
                 .filter(candidate -> candidate.getCandidateId().equals(candidateId))
                 .findFirst()
-                .ifPresent((Candidate::acceptCandidate));
+                .map(candidate -> {
+                    candidate.acceptCandidate();
+                    return candidate;
+                })
+                .orElseThrow((()->new IllegalStateException(THERE_IS_NO_CANDIDATE_WITH_ID.formatted(candidateId.value()))));
     }
 
     public void rejectCandidate(CandidateId candidateId) {
         this.candidates.stream()
                 .filter(candidate -> candidate.getCandidateId().equals(candidateId))
                 .findFirst()
-                .ifPresent(Candidate::rejectCandidate);
+                .map(candidate -> {
+                    candidate.rejectCandidate();
+                    return candidate;
+                })
+                .orElseThrow((()->new IllegalStateException(THERE_IS_NO_CANDIDATE_WITH_ID.formatted(candidateId.value()))));
     }
 }
