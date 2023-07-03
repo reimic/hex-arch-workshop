@@ -1,7 +1,7 @@
 package hexmatcher.demand.adapter.in.web;
 
 import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForDemandUseCase;
-import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForDemandUseCase.CountProposedCandidateForDemandDto;
+import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForDemandUseCase.CountProposedCandidateForDemandView;
 import hexmatcher.demand.domain.valueobject.DemandId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,7 @@ class QueryNumberOfProposedCandidatesForDemandRestAdapter {
     private final QueryNumberOfProposedCandidatesForDemandUseCase queryNumberOfProposedCandidatesForDemandUseCase;
 
     @GetMapping("demands/{demandId}/count-proposed-candidates")
-    CountProposedCandidateForDemandDto countProposedCandidates(@PathVariable String demandId){
+    CountProposedCandidateForDemandView countProposedCandidates(@PathVariable String demandId){
         return queryNumberOfProposedCandidatesForDemandUseCase.queryBy(new DemandId(UUID.fromString(demandId)));
     }
 }
