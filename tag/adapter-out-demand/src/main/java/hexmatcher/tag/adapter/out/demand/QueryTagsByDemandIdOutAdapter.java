@@ -7,6 +7,7 @@ import hexmatcher.tag.domain.valueobject.TagId;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -18,9 +19,9 @@ public class QueryTagsByDemandIdOutAdapter implements GetDemandTagsPort {
 
     @Override
     public Optional<Set<TagId>> findTagsByDemandId(DemandId demandId) {
-        Optional<Set<hexmatcher.demand.domain.valueobject.TagId>> tagsByDemandId =
-                queryTagsByDemandIdInAdapterPort.findTagsByDemandId(new hexmatcher.demand.domain.valueobject.DemandId(demandId.value()));
-        Set<TagId> collect = tagsByDemandId.get().stream().map(t -> new TagId(t.value())).collect(Collectors.toSet());
-        return Optional.of(collect);
+        hexmatcher.demand.domain.valueobject.DemandId mappedDemandId = new hexmatcher.demand.domain.valueobject.DemandId(demandId.value());
+        Set<hexmatcher.demand.domain.valueobject.TagId> tagIds = queryTagsByDemandIdInAdapterPort.findTagsByDemandId(mappedDemandId)
+                .orElse(Collections.emptySet());
+        return Optional.of(tagIds.stream().map(tagId -> new TagId(tagId.value())).collect(Collectors.toSet()));
     }
 }

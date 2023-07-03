@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -17,7 +19,7 @@ public class CalculateMatchingRestAdapter {
     private final CalculateMatchingUseCase calculateMatchingUseCase;
 
     @GetMapping("tags/{demandId}")
-    MatchingView getMatchValues(@PathVariable DemandId demandId){
-        return calculateMatchingUseCase.apply(new CalculateMatchCommand(demandId));
+    MatchingView getMatchValues(@PathVariable String demandId){
+        return calculateMatchingUseCase.apply(new CalculateMatchCommand(new DemandId(UUID.fromString(demandId))));
     }
 }

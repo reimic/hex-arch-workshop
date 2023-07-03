@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -19,7 +20,12 @@ class QueryAssignableEmployeeAdapter implements GetEmployeesTagsPort {
     public Map<EmployeeId, Set<TagId>> findEmployeesTags() {
         Map<hexmatcher.employee.domain.valueobject.EmployeeId, Set<hexmatcher.employee.domain.valueobject.TagId>> employeesTags
                 = queryAssignableEmployeeWithTagsAdapter.findEmployeesTags();
-        //new EmployeeId(employeesTags.)
-        return null;
+
+       return employeesTags.entrySet()
+                .stream()
+                .collect(Collectors.toMap(
+                        entry ->new EmployeeId(entry.getKey().value()),
+                        entry -> entry.getValue().stream().map(tagId -> new TagId(tagId.value())).collect(Collectors.toSet())
+                ));
     }
 }
