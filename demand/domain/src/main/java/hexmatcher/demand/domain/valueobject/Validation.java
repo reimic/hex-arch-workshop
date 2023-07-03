@@ -2,7 +2,6 @@ package hexmatcher.demand.domain.valueobject;
 
 import lombok.NonNull;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Validation {
@@ -23,11 +22,4 @@ public class Validation {
         }
     }
 
-    public static void requireLocalDateToBeAfterToday(LocalDate value,@NonNull String fieldName){
-        if (Objects.isNull(value)||!value.isAfter(LocalDate.now())){
-            throw new ValidationException(
-                    fieldName.concat(" must be at least one day after today.")
-            );
-        }
-    }
 }
