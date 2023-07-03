@@ -3,13 +3,10 @@ package hexmatcher.employee.adapter.out.db;
 import hexmatcher.employee.application.usecase.QueryAllEmployeesUseCase.EmployeeFullView;
 import hexmatcher.employee.domain.entity.Employee;
 import hexmatcher.employee.domain.valueobject.EmployeeId;
-import hexmatcher.employee.domain.valueobject.TagId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 interface EmployeeRepository extends JpaRepository<Employee, EmployeeId>, CustomEmployeeRepository {
     @Query("""

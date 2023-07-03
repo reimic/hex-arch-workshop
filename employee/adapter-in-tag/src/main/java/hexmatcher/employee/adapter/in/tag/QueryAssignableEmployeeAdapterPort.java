@@ -1,6 +1,6 @@
 package hexmatcher.employee.adapter.in.tag;
 
-import hexmatcher.employee.application.port.QueryAssignableEmployeeCharacteristics;
+import hexmatcher.employee.application.port.QueryAssignableEmployeeCharacteristicsPort;
 import hexmatcher.employee.application.usecase.QueryAssignableEmployeeCharacteristicsUseCase;
 import hexmatcher.employee.domain.valueobject.EmployeeId;
 import hexmatcher.employee.domain.valueobject.TagId;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
-public class QueryAssignableEmployeeAdapter implements QueryAssignableEmployeeCharacteristics {
+public class QueryAssignableEmployeeAdapterPort implements QueryAssignableEmployeeCharacteristicsPort {
     private final QueryAssignableEmployeeCharacteristicsUseCase queryAssignableEmployeeCharacteristicsUseCase;
 
     @Override

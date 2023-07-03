@@ -1,7 +1,9 @@
 package hexmatcher.employee.adapter.in.web;
 
-import hexmatcher.employee.application.usecase.RegisterCharacteristicCommand;
 import hexmatcher.employee.application.usecase.RegisterCharacteristicUseCase;
+import hexmatcher.employee.application.usecase.RegisterCharacteristicUseCase.RegisterCharacteristicCommand;
+import hexmatcher.employee.domain.valueobject.EmployeeId;
+import hexmatcher.employee.domain.valueobject.TagId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -25,5 +27,11 @@ class RegisterCharacteristicRestAdapter {
                 request.tagId()
         );
         return registerCharacteristicUseCase.handle(registerCharacteristicCommand);
+    }
+
+    record CharacteristicCreationRequest(
+            EmployeeId employeeId,
+            TagId tagId
+    ) {
     }
 }

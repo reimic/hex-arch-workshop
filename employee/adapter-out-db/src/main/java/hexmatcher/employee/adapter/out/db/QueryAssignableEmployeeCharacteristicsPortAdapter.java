@@ -1,6 +1,6 @@
 package hexmatcher.employee.adapter.out.db;
 
-import hexmatcher.employee.application.port.QueryAssignableEmployeeCharacteristics;
+import hexmatcher.employee.application.port.QueryAssignableEmployeeCharacteristicsPort;
 import hexmatcher.employee.domain.valueobject.EmployeeId;
 import hexmatcher.employee.domain.valueobject.TagId;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Repository
 @RequiredArgsConstructor
-class QueryAssignableEmployeeCharacteristicsAdapter implements QueryAssignableEmployeeCharacteristics {
+class QueryAssignableEmployeeCharacteristicsPortAdapter implements QueryAssignableEmployeeCharacteristicsPort {
     private final EmployeeRepository employeeRepository;
     @Override
     public Map<EmployeeId, Set<TagId>> findEmployeesTags() {

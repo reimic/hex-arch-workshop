@@ -1,16 +1,18 @@
 package hexmatcher.employee.adapter.in.web;
 
-import hexmatcher.employee.application.usecase.AssignEmployeeToProjectCommand;
-import hexmatcher.employee.application.usecase.AssignEmployeeToProjectUseCase;
-import hexmatcher.employee.application.usecase.RegisterEmployeeCommand;
 import hexmatcher.employee.application.usecase.RegisterEmployeeUseCase;
+import hexmatcher.employee.application.usecase.RegisterEmployeeUseCase.RegisterEmployeeCommand;
 import hexmatcher.employee.domain.valueobject.ProjectId;
 import hexmatcher.employee.domain.valueobject.TagId;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -20,7 +22,6 @@ import java.util.stream.Collectors;
 class RegisterEmployeeRestAdapter {
 
     private final RegisterEmployeeUseCase registerEmployeeUseCase;
-    private final AssignEmployeeToProjectUseCase assignEmployeeToProjectUseCase;
     @PostMapping("employees")
     @ResponseStatus(HttpStatus.CREATED)
     String registerEmployee(@RequestBody EmployeeCreationRequest request) {
@@ -35,14 +36,11 @@ class RegisterEmployeeRestAdapter {
         return registerEmployeeUseCase.handle(registerEmployeeCommand);
     }
 
-    @PatchMapping("employees")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    void registerEmployee(@RequestBody AssignProjectRequest request) {
-        log.info("Got request with body: {}", request);
-        AssignEmployeeToProjectCommand assignEmployeeToProjectCommand = new AssignEmployeeToProjectCommand(
-          request.employeeId(),
-          request.projectId()
-        );
-        assignEmployeeToProjectUseCase.apply(assignEmployeeToProjectCommand);
+    record EmployeeCreationRequest(
+            String firstName,
+            String lastName,
+            String projectId,
+            Set<String> tagIds
+    ) {
     }
 }
