@@ -13,7 +13,7 @@ import java.time.Instant;
 import java.util.List;
 
 @RestControllerAdvice
-class RestExceptionHandler {
+class ProjectRestExceptionHandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
     ResponseEntity<ErrorDto> handleException(EntityNotFoundException entityNotFoundException) {

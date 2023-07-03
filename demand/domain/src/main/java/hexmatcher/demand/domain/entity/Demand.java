@@ -1,5 +1,6 @@
 package hexmatcher.demand.domain.entity;
 
+import hexmatcher.demand.domain.converter.DemandDescriptionConverter;
 import hexmatcher.demand.domain.converter.DemandIdConverter;
 import hexmatcher.demand.domain.converter.ProjectIdConverter;
 import hexmatcher.demand.domain.valueobject.*;
@@ -41,7 +42,8 @@ public class Demand {
     @Column(nullable = false)
     private LocalDate needDate;
     private Long employeesRequired;
-    private String description;
+    @Convert(converter = DemandDescriptionConverter.class)
+    private DemandDescription description;
     @OneToMany(mappedBy = "demand", cascade = CascadeType.ALL)
     private Set<Candidate> candidates = new HashSet<>();
     @OneToMany(mappedBy = "demand", cascade = CascadeType.ALL)
@@ -64,7 +66,7 @@ public class Demand {
         demand.projectId = projectId;
         demand.needDate = needDate;
         demand.employeesRequired = employeesRequired == null ? 1 : employeesRequired;
-        demand.description = description;
+        demand.description = new DemandDescription(description);
         demand.specifications = (tags == null || tags.isEmpty()) ? null : tags.stream()
                 .map(tagId -> Specification.createNew(demand, tagId)).collect(Collectors.toSet());
         return demand;
