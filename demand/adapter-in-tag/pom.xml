@@ -5,28 +5,26 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>acmecorp.hexmatcher</groupId>
-        <artifactId>tag</artifactId>
+        <artifactId>demand</artifactId>
         <version>${revision}</version>
     </parent>
-    <groupId>acmecorp.hexmatcher.tag</groupId>
-    <artifactId>application</artifactId>
+    <groupId>acmecorp.hexmatcher.demand</groupId>
+    <artifactId>adapter-in-tag</artifactId>
     <version>${revision}</version>
-    <name>Tag's Application</name>
+    <name>Demand's Tag's Adapter (OUT)</name>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>acmecorp.hexmatcher.tag</groupId>
-            <artifactId>domain</artifactId>
+            <groupId>acmecorp.hexmatcher.demand</groupId>
+            <artifactId>application</artifactId>
             <version>${revision}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>acmecorp.hexmatcher.tag</groupId>-->
+<!--            <artifactId>application</artifactId>-->
+<!--            <version>${revision}</version>-->
+<!--        </dependency>-->
     </dependencies>
+
 </project>

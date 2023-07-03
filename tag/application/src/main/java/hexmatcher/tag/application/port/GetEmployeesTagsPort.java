@@ -1,4 +1,4 @@
-package hexmatcher.tag.application.usecase.port;
+package hexmatcher.tag.application.port;
 
 import hexmatcher.tag.domain.valueobject.EmployeeId;
 import hexmatcher.tag.domain.valueobject.TagId;

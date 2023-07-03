@@ -60,12 +60,29 @@
             <version>${revision}</version>
         </dependency>
 
+        <dependency>
+            <groupId>acmecorp.hexmatcher.tag</groupId>
+            <artifactId>adapter-out-demand</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>acmecorp.hexmatcher.tag</groupId>
+            <artifactId>adapter-out-employee</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
 
         <!-- employee -->
 
         <dependency>
             <groupId>acmecorp.hexmatcher.employee</groupId>
             <artifactId>adapter-in-web</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>acmecorp.hexmatcher.employee</groupId>
+            <artifactId>adapter-in-tag</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>
@@ -79,6 +96,11 @@
         <dependency>
             <groupId>acmecorp.hexmatcher.demand</groupId>
             <artifactId>adapter-in-web</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>acmecorp.hexmatcher.demand</groupId>
+            <artifactId>adapter-in-tag</artifactId>
             <version>${revision}</version>
         </dependency>
         <dependency>

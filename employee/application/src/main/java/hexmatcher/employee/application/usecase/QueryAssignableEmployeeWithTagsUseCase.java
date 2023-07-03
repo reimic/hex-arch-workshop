@@ -1,6 +1,6 @@
 package hexmatcher.employee.application.usecase;
 
-import hexmatcher.employee.application.port.QueryAssignableEmployeeCharacteristicsPort;
+import hexmatcher.employee.application.port.QueryAssignableEmployeeWithTagsPort;
 import hexmatcher.employee.domain.valueobject.EmployeeId;
 import hexmatcher.employee.domain.valueobject.TagId;
 import lombok.RequiredArgsConstructor;
@@ -11,10 +11,10 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class QueryAssignableEmployeeCharacteristicsUseCase {
+public class QueryAssignableEmployeeWithTagsUseCase {
 
-    private final QueryAssignableEmployeeCharacteristicsPort queryAssignableEmployeeCharacteristicsPort;
+    private final QueryAssignableEmployeeWithTagsPort queryAssignableEmployeeWithTagsPort;
     public Map<EmployeeId, Set<TagId>> query(){
-        return  queryAssignableEmployeeCharacteristicsPort.findEmployeesTags();
+        return  queryAssignableEmployeeWithTagsPort.findEmployeesTags();
     }
 }

@@ -6,6 +6,6 @@ import hexmatcher.employee.domain.valueobject.TagId;
 import java.util.Map;
 import java.util.Set;
 
-public interface QueryAssignableEmployeeCharacteristicsPort {
+public interface QueryAssignableEmployeeWithTagsPort {
     Map<EmployeeId, Set<TagId>> findEmployeesTags();
 }
