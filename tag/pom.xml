@@ -11,7 +11,7 @@
     <groupId>acmecorp.hexmatcher</groupId>
     <artifactId>tag</artifactId>
     <version>${revision}</version>
-    <name>Tag</name>
+    <name>tag</name>
     <packaging>pom</packaging>
 
     <modules>

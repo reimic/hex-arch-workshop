@@ -5,11 +5,13 @@ import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForD
 import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForDemandUseCase.CountProposedCandidateForDemandView;
 import hexmatcher.demand.domain.entity.Demand;
 import hexmatcher.demand.domain.valueobject.DemandId;
+import hexmatcher.demand.domain.valueobject.TagId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
+import java.util.Set;
 
 interface DemandRepository extends JpaRepository<Demand, DemandId> {
 
@@ -29,6 +31,7 @@ interface DemandRepository extends JpaRepository<Demand, DemandId> {
             where d.demandId = :demandId 
             group by d.demandId
             """)
+
     Optional<CountProposedCandidateForDemandView> queryForProposedBy(@Param("demandId") DemandId demandId);
 
     @Query("""
@@ -66,4 +69,13 @@ interface DemandRepository extends JpaRepository<Demand, DemandId> {
             group by d.demandId
             """)
     Optional<CountAcceptedCandidateForDemandView> queryForAcceptedBy(@Param("demandId") DemandId demandId);
+
+    @Query("""
+        select s.tagId
+        from Demand d
+        join d.specifications s
+        where d.demandId = :demandId
+        """)
+    Set<TagId> queryTagsByDemandId(@Param("demandId") DemandId demandId);
+
 }

@@ -20,11 +20,11 @@
             <artifactId>application</artifactId>
             <version>${revision}</version>
         </dependency>
-        <dependency>
-            <groupId>acmecorp.hexmatcher.tag</groupId>
-            <artifactId>application</artifactId>
-            <version>${revision}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>acmecorp.hexmatcher.tag</groupId>-->
+<!--            <artifactId>application</artifactId>-->
+<!--            <version>${revision}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>

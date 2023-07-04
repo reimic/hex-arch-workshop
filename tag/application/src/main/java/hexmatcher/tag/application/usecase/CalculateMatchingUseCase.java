@@ -1,25 +1,24 @@
 package hexmatcher.tag.application.usecase;
 
-import hexmatcher.tag.application.usecase.port.GetDemandTagsPort;
-import hexmatcher.tag.application.usecase.port.GetEmployeesTagsPort;
+import hexmatcher.tag.application.port.GetDemandTagsPort;
+import hexmatcher.tag.application.port.GetEmployeesTagsPort;
 import hexmatcher.tag.domain.valueobject.ErrorLog;
 import hexmatcher.tag.domain.valueobject.MatchValue;
 import hexmatcher.tag.domain.entity.Matching;
 import hexmatcher.tag.domain.valueobject.DemandId;
 import hexmatcher.tag.domain.valueobject.EmployeeId;
 import hexmatcher.tag.domain.valueobject.MatchingId;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CalculateMatchingUseCase {
 
     private final GetDemandTagsPort getDemandTagsPort;
-
     private final GetEmployeesTagsPort getEmployeesTagsPort;
 
     public MatchingView apply(CalculateMatchCommand command) {
