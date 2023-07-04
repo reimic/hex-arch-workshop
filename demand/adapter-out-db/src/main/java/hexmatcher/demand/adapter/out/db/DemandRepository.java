@@ -1,5 +1,6 @@
 package hexmatcher.demand.adapter.out.db;
 
+import hexmatcher.demand.application.usecase.QueryNumberOfAcceptedCandidatesForDemandUseCase;
 import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForDemandUseCase;
 import hexmatcher.demand.domain.entity.Demand;
 import hexmatcher.demand.domain.valueobject.DemandId;
@@ -46,6 +47,26 @@ interface DemandRepository extends JpaRepository<Demand, DemandId> {
             group by d.demandId
             """)
     Optional<QueryNumberOfProposedCandidatesForDemandUseCase.CountProposedCandidateForDemandProjection> queryForProposedByProjection(@Param("demandId") DemandId demandId);
+
+    @Query("""
+            select 
+                new hexmatcher.demand.application.usecase.QueryNumberOfAcceptedCandidatesForDemandUseCase$CountAcceptedCandidateForDemandView(
+                d.demandId ,
+                    sum (
+                        case 
+                            when c.candidateStatus = hexmatcher.demand.domain.entity.CandidateStatus.ACCEPTED then 1 
+                            else 0
+                        end
+                    )
+                )
+            from Demand d
+            left join d.candidates c
+            where d.demandId = :demandId 
+            group by d.demandId
+            """)
+    Optional<QueryNumberOfAcceptedCandidatesForDemandUseCase.CountAcceptedCandidateForDemandView> queryForAcceptedBy(@Param("demandId") DemandId demandId);
+
+
     @Query("""
         select s.tagId
         from Demand d
