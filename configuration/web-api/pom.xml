@@ -54,23 +54,23 @@
 
         <!--  tag  -->
 
-        <dependency>
-            <groupId>acmecorp.hexmatcher.tag</groupId>
-            <artifactId>adapter-in-web</artifactId>
-            <version>${revision}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>acmecorp.hexmatcher.tag</groupId>-->
+<!--            <artifactId>adapter-in-web</artifactId>-->
+<!--            <version>${revision}</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>acmecorp.hexmatcher.tag</groupId>
-            <artifactId>adapter-out-demand</artifactId>
-            <version>${revision}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>acmecorp.hexmatcher.tag</groupId>-->
+<!--            <artifactId>adapter-out-demand</artifactId>-->
+<!--            <version>${revision}</version>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>acmecorp.hexmatcher.tag</groupId>
-            <artifactId>adapter-out-employee</artifactId>
-            <version>${revision}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>acmecorp.hexmatcher.tag</groupId>-->
+<!--            <artifactId>adapter-out-employee</artifactId>-->
+<!--            <version>${revision}</version>-->
+<!--        </dependency>-->
 
 
         <!-- employee -->
