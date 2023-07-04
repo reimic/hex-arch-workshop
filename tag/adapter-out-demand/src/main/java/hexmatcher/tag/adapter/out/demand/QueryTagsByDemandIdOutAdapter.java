@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
-public class QueryTagsByDemandIdOutAdapter implements GetDemandTagsPort {
+class QueryTagsByDemandIdOutAdapter implements GetDemandTagsPort {
     private final QueryTagsByDemandIdInAdapter queryTagsByDemandIdInAdapterPort;
 
     @Override

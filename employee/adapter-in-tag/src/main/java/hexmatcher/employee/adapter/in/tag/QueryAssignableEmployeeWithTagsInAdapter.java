@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
-public class QueryAssignableEmployeeWithTagsAdapter {
+public class QueryAssignableEmployeeWithTagsInAdapter {
     private final QueryAssignableEmployeeWithTagsUseCase queryAssignableEmployeeWithTagsUseCase;
 
 

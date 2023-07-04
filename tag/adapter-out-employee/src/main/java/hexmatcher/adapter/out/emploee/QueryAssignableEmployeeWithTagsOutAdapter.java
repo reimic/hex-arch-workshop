@@ -1,7 +1,7 @@
 package hexmatcher.adapter.out.emploee;
 
 
-import hexmatcher.employee.adapter.in.tag.QueryAssignableEmployeeWithTagsAdapter;
+import hexmatcher.employee.adapter.in.tag.QueryAssignableEmployeeWithTagsInAdapter;
 import hexmatcher.tag.application.port.GetEmployeesTagsPort;
 import hexmatcher.tag.domain.valueobject.EmployeeId;
 import hexmatcher.tag.domain.valueobject.TagId;
@@ -14,12 +14,12 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
-class QueryAssignableEmployeeAdapter implements GetEmployeesTagsPort {
-    private final QueryAssignableEmployeeWithTagsAdapter queryAssignableEmployeeWithTagsAdapter;
+class QueryAssignableEmployeeWithTagsOutAdapter implements GetEmployeesTagsPort {
+    private final QueryAssignableEmployeeWithTagsInAdapter queryAssignableEmployeeWithTagsInAdapter;
     @Override
     public Map<EmployeeId, Set<TagId>> findEmployeesTags() {
         Map<hexmatcher.employee.domain.valueobject.EmployeeId, Set<hexmatcher.employee.domain.valueobject.TagId>> employeesTags
-                = queryAssignableEmployeeWithTagsAdapter.findEmployeesTags();
+                = queryAssignableEmployeeWithTagsInAdapter.findEmployeesTags();
 
        return employeesTags.entrySet()
                 .stream()

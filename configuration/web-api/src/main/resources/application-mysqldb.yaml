@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3320/hexmatcher_schema?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/hexmatcher_schema?createDatabaseIfNotExist=true
     username: root
     password: root
     driverClassName: com.mysql.cj.jdbc.Driver

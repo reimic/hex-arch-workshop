@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Repository
 @RequiredArgsConstructor
-class QueryAssignableEmployeeWithTagsPortAdapter implements QueryAssignableEmployeeWithTagsPort {
+class QueryAssignableEmployeeWithTagsAdapter implements QueryAssignableEmployeeWithTagsPort {
     private final EmployeeRepository employeeRepository;
     @Override
     public Map<EmployeeId, Set<TagId>> findEmployeesTags() {
