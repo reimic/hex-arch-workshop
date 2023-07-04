@@ -1,9 +1,11 @@
 package hexmatcher.demand.application.port;
 
-import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForDemandUseCase.CountProposedCandidateForDemandView;
+import hexmatcher.demand.application.usecase.QueryNumberOfProposedCandidatesForDemandUseCase.CountProposedCandidateForDemandProjection;
 import hexmatcher.demand.domain.valueobject.DemandId;
+
+import java.util.Optional;
 
 @FunctionalInterface
 public interface QueryNumberOfProposedCandidatesForDemandPort {
-    CountProposedCandidateForDemandView queryBy(DemandId demandId);
+    Optional<CountProposedCandidateForDemandProjection> queryBy(DemandId demandId);
 }
